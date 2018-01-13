@@ -1,35 +1,21 @@
+// Copyright © 2018 NAME HERE <EMAIL ADDRESS>
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 package main
 
-import (
-	"log"
-
-	"github.com/zeromq/goczmq"
-)
+import "github.com/dialogbox/gomoa/cmd"
 
 func main() {
-	server, err := goczmq.NewRouter("tcp://*:5555")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer server.Destroy()
-
-	log.Println("server created and bound")
-
-	// Create a server socket and connect it to the router.
-	client, err := goczmq.NewDealer("tcp://127.0.0.1:5555")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer client.Destroy()
-
-	log.Println("client created and connected")
-
-	for {
-		request, err := server.RecvMessage()
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		log.Printf("router received '%s' from '%v'", request[1], request[0])
-	}
+	cmd.Execute()
 }
