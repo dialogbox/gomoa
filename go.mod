@@ -1,5 +1,7 @@
 module github.com/dialogbox/gomoa
 
+go 1.19
+
 require (
 	github.com/fsnotify/fsnotify v1.4.7
 	github.com/hashicorp/hcl v1.0.0
@@ -17,6 +19,10 @@ require (
 	github.com/zeromq/goczmq v4.1.0+incompatible
 	golang.org/x/sys v0.0.0-20180906133057-8cf3aee42992
 	golang.org/x/text v0.0.0-20171227012246-e19ae1496984
+	gopkg.in/yaml.v2 v2.4.0
+)
+
+require (
+	github.com/davecgh/go-spew v1.1.1 // indirect
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
-	gopkg.in/yaml.v2 v2.2.1
 )
